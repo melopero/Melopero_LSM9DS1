@@ -388,19 +388,19 @@ class LSM9DS1():
         acc_range = get_range(self.acc_scale)
         
         if x_threshold:
-            x_threshold = int(acc_range / x_threshold)
+            x_threshold = int(x_threshold * 255 / acc_range)
             check_value(x_threshold)
             self.write_byte_gyro(LSM9DS1.ACC_X_INT_THR_REG, x_threshold)
             self.write_flag_gyro(LSM9DS1.ACC_INT_CFG_REG, 0b10 if x_detect_high else 0b01, 2, 2)
         
         if y_threshold:
-            y_threshold = int(acc_range / y_threshold)
+            y_threshold = int(y_threshold * 255 / acc_range)
             check_value(y_threshold)
             self.write_byte_gyro(LSM9DS1.ACC_Y_INT_THR_REG, y_threshold)
             self.write_flag_gyro(LSM9DS1.ACC_INT_CFG_REG, 0b10 if y_detect_high else 0b01, 4, 2)
         
         if z_threshold:
-            z_threshold = int(acc_range / z_threshold)
+            z_threshold = int(z_threshold * 255 / acc_range)
             check_value(z_threshold)
             self.write_byte_gyro(LSM9DS1.ACC_Z_INT_THR_REG, z_threshold)
             self.write_flag_gyro(LSM9DS1.ACC_INT_CFG_REG, 0b10 if z_detect_high else 0b01, 6, 2)

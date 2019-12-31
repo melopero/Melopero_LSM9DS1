@@ -172,6 +172,8 @@ class LSM9DS1():
             self.spi_gyro_cs = mag_cs
             self.spi_mag_cs = gyro_cs
         else :
+            self.spi.close()
+            GPIO.output(gyro_cs, GPIO.HIGH)
             raise ValueError("""Pin numbers {}, {} are wrong or the device is not 
                              responding correctly.""".format(gyro_cs, mag_cs))
         
@@ -179,7 +181,7 @@ class LSM9DS1():
         GPIO.output(gyro_cs, GPIO.HIGH)
         
         #enable spi read operations
-        self.write_flag_mag(LSM9DS1.MAG_CONTROL_REG_3, 0b1, 3, 1)
+        self.write_byte_mag(LSM9DS1.MAG_CONTROL_REG_3, 0x00)
         #TODO: disable i2c ?
     
     def read_bytes_gyro(self, register_addr, length):

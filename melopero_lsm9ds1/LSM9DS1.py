@@ -172,6 +172,7 @@ class LSM9DS1():
             self.spi_gyro_cs = mag_cs
             self.spi_mag_cs = gyro_cs
         else :
+            self.spi_enabled = False
             self.spi.close()
             GPIO.output(gyro_cs, GPIO.HIGH)
             raise ValueError("""Pin numbers {}, {} are wrong or the device is not 

@@ -136,7 +136,7 @@ class LSM9DS1():
         #enable i2c in control registers mag control 3 ...
     
     
-    def use_spi(self, gyro_cs = 8, mag_cs = 7, bus = 0, max_speed_hz = 10 ** 7):
+    def use_spi(self, gyro_cs, mag_cs, bus = 0, max_speed_hz = 10 ** 7):
         if not spi_available:
             raise Exception("spidev and/or RPi.GPIO are not present -> SPI protocol not available")
             
@@ -145,7 +145,7 @@ class LSM9DS1():
         
         self.spi = spidev.SpiDev()
         self.spi.cshigh = False
-        self.spi.mode = 0b10
+        self.spi.mode = 0b00
         self.spi_bus = bus
         
         #GPIO setup
@@ -156,11 +156,12 @@ class LSM9DS1():
 
         GPIO.output(gyro_cs, GPIO.LOW)
         self.spi.open(bus, 0)
+        #Attention these two instructions are different
         self.spi.max_speed_hz = max_speed_hz
         self.spi_max_speed_hz = max_speed_hz
         
         whoami = self.spi.xfer2([LSM9DS1.WHO_AM_I_REG | LSM9DS1.SPI_READ_FLAG, 0x00])
-        print(whoami)
+        
         if whoami[1] == LSM9DS1.GYRO_ID:
             self.spi_gyro_dev = 0
             self.spi_mag_dev = 1
@@ -534,11 +535,6 @@ class LSM9DS1():
                 "z_pos" : bool(flag & 0x20), "x_neg" : bool(flag & 0x10), 
                 "y_neg" : bool(flag & 0x08), "z_neg" : bool(flag & 0x04),
                 "internal overflow" : bool(flag & 0x02), "interrupt occurred" : bool(flag & 0x01)}
-    
-    def get_temperature(self):
-        temp_bytes = self.read_bytes_gyro(LSM9DS1.TEMPERATURE_REG, 2)
-        temp_bytes[1] &= 0x0F
-        return int.from_bytes(temp_bytes, byteorder = 'little', signed = True)
     
     def _multiple_read_and_convert(self, read_func, start_reg, length, value_length = 2):
         res = []

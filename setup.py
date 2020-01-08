@@ -5,7 +5,7 @@ setuptools.setup(
     name="melopero_lsm9ds1",
     version="0.1.0",
     description="A module to easily access Melopero's LSM9DS1 sensor's features",
-    url="https://github.com/melopero/Melopero_AMG8833/tree/master/module",
+    url="https://github.com/melopero/Melopero_LSM9DS1",
     author="Melopero",
     author_email="info@melopero.com",
     license="MIT",

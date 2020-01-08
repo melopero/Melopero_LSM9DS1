@@ -12,8 +12,9 @@ import time
 sensor = mp.LSM9DS1()
 
 #Gyro and Mag chip select pins
-gyro_cs = 9
-mag_cs = 10
+#Note: the module uses GPIO.BOARD pin numbers
+gyro_cs = 24 #Chip enable 0 pin on raspberry pi
+mag_cs = 26 #Chip enable 1 pin on raspberry pi  
 
 #Setup the device to use SPI communication protocol
 sensor.use_spi(gyro_cs, mag_cs) 

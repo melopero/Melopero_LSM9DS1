@@ -34,6 +34,7 @@ class LSM9DS1():
     MAG_ID = 0b00111101
     
     SPI_READ_FLAG = 0b10000000
+    SPI_MAG_REG_INC = 0b01000000
     
     CONTROL_REG_8 = 0x22
     
@@ -244,7 +245,7 @@ class LSM9DS1():
             self.spi.open(self.spi_bus, self.spi_mag_dev)
             self.spi.max_speed_hz = self.spi_max_speed_hz
             extend = [0x00] * length
-            data_to_send = [register_addr | LSM9DS1.SPI_READ_FLAG]
+            data_to_send = [register_addr | LSM9DS1.SPI_READ_FLAG | LSM9DS1.SPI_MAG_REG_INC]
             data_to_send.extend(extend)
             result = self.spi.xfer2(data_to_send)
             self.spi.close()

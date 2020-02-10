@@ -1,4 +1,8 @@
-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: Leonardo La Rocca
+"""
 import setuptools
 
 setuptools.setup(
@@ -16,5 +20,5 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.5",
     ],
-    install_requires=["smbus2", "RPi.GPIO"],
+    install_requires=["smbus2", "RPi.GPIO", "spidev"],
 )

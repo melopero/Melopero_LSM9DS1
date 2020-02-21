@@ -31,8 +31,7 @@ sensor.use_i2c()
 #sensor.use_spi(gyro_cs, mag_cs) to use spi
 
 ```
-To select SPI 
-<br>In this case you must initialize gyro_cs and mag_cs pins
+If you want to use SPI bus, first you must initialize gyro_cs (CSAG pin on the sensor) and mag_cs (CSM on the sensor)
 <br>Note: the module uses GPIO.BOARD pin numbers:
 ```python
 gyro_cs = 24 #Chip Enable 0 (CE_0) pin on the Raspberry Pi

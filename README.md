@@ -1,5 +1,70 @@
+# Melopero_LSM9DS1 Python3 library
+A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Rasberry Pi.
+<br> If you were looking for the Arduino library click [HERE](https://github.com/melopero/Melopero_LSM9DS1)
+
 # Melopero LSM9DS1 breakout board
 ![melopero logo](images/melopero-lsm9ds1-main.jpg?raw=true)
+
+# Pinouts
+
+<table style="width:100%">
+  <tr>
+    <th>Melopero LSM9DS1</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+    <td>3V3</td>
+    <td>Input power pin. Apply 3.3V to this pin</td> 
+  </tr>
+  <tr>
+    <td>SCL</td>
+    <td>I2C or SPI Serial Clock pin</td> 
+  </tr>
+  <tr>
+    <td>SDA</td>
+    <td>I2C SDA pin or SPI MOSI pin</td> 
+  </tr>
+  <tr>
+    <td>GND</td>
+    <td>Ground pin</td>
+  </tr>
+  <tr>
+    <td>CSAG</td>
+    <td>Accelerometer+Gyro SPI Chip Select</td>
+  </tr>
+  <tr>
+    <td>CSM</td>
+    <td>Magnetometer SPI Chip Select</td>
+  </tr>
+  <tr>
+    <td>SDOAG</td>
+    <td>Accelerometer+Gyro SPI MISO pin</td>
+  </tr>
+  <tr>
+    <td>SDOAG</td>
+    <td>Magnetometer SPI MISO pin</td>
+  </tr>
+  <tr>
+    <td>INT1</td>
+    <td>Accelerometer+Gyro Interrupt pin</td>
+  </tr>
+   <tr>
+    <td>INTM</td>
+    <td>Magnetometer Interrupt pin</td>
+  </tr>
+  <tr>
+    <td>INT2</td>
+    <td>Another Interrupt pin for the accelerometer+gyro. <br>This pin is not supported in our library</td>
+  </tr>
+  <tr>
+    <td>DEN</td>
+    <td>Gyroscope data enable pin. <br>This pin is not supported in our library</td>
+  </tr>
+  <tr>
+    <td>DRDY</td>
+    <td>Magnetometer data ready pin. <br>This pin is not supported in our library</td>
+  </tr>
+</table>
 
 ## Getting Started
 ### Prerequisites
@@ -8,11 +73,86 @@ You will need:
 - the Melopero LSM9DS1 breakout: [buy here](https://www.melopero.com/shop/sensori/imu/melopero-lsm9ds1-breakout/)
 
 
+
 ### Installing
 You can install the melopero-lsm9ds1 module by typing this line in a terminal window: 
 ```python
 sudo pip3 install melopero-lsm9ds1
 ```
+
+### Connect the sensor to the Raspberry Pi <br>(use only 3.3V power and logic, do not connect this sensor board directly to 5V)
+You can find a description of the GPIO connector of the Raspberry Pi [HERE](https://www.raspberrypi.org/documentation/usage/gpio/)
+<br>This sensor communicates over I2C or SPI.
+<br><b>I2C connections</b>:
+<table style="width:100%">
+  <tr>
+    <th>Melopero LSM9DS1</th>
+    <th>Raspberry Pi</th> 
+  </tr>
+  <tr>
+    <td>3V3</td>
+    <td>3.3V</td> 
+  </tr>
+  <tr>
+    <td>SCL</td>
+    <td>SCL</td> 
+  </tr>
+  <tr>
+    <td>SDA</td>
+    <td>SDA</td> 
+  </tr>
+  <tr>
+    <td>GND</td>
+    <td>GND</td> 
+  </tr>
+</table>
+<br><b>SPI connections</b>:
+<table style="width:100%">
+  <tr>
+    <th>Melopero LSM9DS1</th>
+    <th>Raspberry Pi</th> 
+  </tr>
+  <tr>
+    <td>3V3</td>
+    <td>3.3V</td> 
+  </tr>
+  <tr>
+    <td>SCL</td>
+    <td>SCLK</td> 
+  </tr>
+  <tr>
+    <td>SDA</td>
+    <td>MOSI</td> 
+  </tr>
+  <tr>
+    <td>SDOAG, SDOM</td>
+    <td>MISO</td> 
+  </tr>
+  <tr>
+    <td>CSAG</td>
+    <td>CE_0 (BOARD pin 24, GPIO 8)</td> 
+  </tr>
+  <tr>
+    <td>CSM</td>
+    <td>CE_1 (BOARD pin 26, GPIO 7)</td> 
+  </tr>
+</table>
+<br><b>Optional interrupt pins</b>:
+<table style="width:100%">
+  <tr>
+    <th>Melopero LSM9DS1</th>
+    <th>Raspberry Pi</th> 
+  </tr>
+  <tr>
+    <td>INT1 <br>(Interrupt pin for Accelerometer and Gyroscope)</td>
+    <td>Any pin that supports interrupts</td> 
+  </tr>
+  <tr>
+    <td>INTM <br>(interrupt pin for Magnetometer)</td>
+    <td>Any pin that supports interrupts</td> 
+  </tr>
+  
+</table>
 
 ### Usage
 Import the melopero_lsm9ds1 and time modules in your Python3 script: 

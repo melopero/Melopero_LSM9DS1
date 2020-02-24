@@ -5,7 +5,7 @@
 ### Prerequisites
 You will need:
 - Python3 installed, you can download it here: [download python3](https://www.python.org/downloads/)
-- the Melopero LSM9DS1 breakout: [buy here](https://www.melopero.com/en/shop/sensori/melopero-amg8833-grid-eye-ir-array-breakout/)
+- the Melopero LSM9DS1 breakout: [buy here](https://www.melopero.com/shop/sensori/imu/melopero-lsm9ds1-breakout/)
 
 
 ### Installing
@@ -73,7 +73,7 @@ Close the connection after using the sensor
 sensor.close()
 ```
 
-## Complete example using I2C bus
+## Example using I2C bus
 The following example will Print out 100 measurments of the accelerometer, gyroscope and magnetometer at a .5s interval.
 ```python 
 #!/usr/bin/env python3
@@ -119,7 +119,7 @@ for _ in range(100):
 sensor.close()
 ```
 
-## Complete example using SPI bus
+## Example using SPI bus
 The following example will Print out 100 measurments of the accelerometer, gyroscope and magnetometer at a .5s interval.
 ```python 
 #!/usr/bin/env python3

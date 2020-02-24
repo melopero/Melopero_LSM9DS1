@@ -41,7 +41,7 @@ A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Ras
     <td>Accelerometer+Gyro SPI MISO pin</td>
   </tr>
   <tr>
-    <td>SDOAG</td>
+    <td>SDOM</td>
     <td>Magnetometer SPI MISO pin</td>
   </tr>
   <tr>

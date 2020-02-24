@@ -1,5 +1,5 @@
 # Melopero LSM9DS1 breakout board
-![melopero logo](images/sensor.jpg?raw=true)
+![melopero logo](images/melopero-lsm9ds1-main.jpg?raw=true)
 
 ## Getting Started
 ### Prerequisites

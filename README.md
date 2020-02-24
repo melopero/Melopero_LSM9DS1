@@ -74,7 +74,7 @@ You will need:
 
 
 
-### Installing
+### Install the library
 You can install the melopero-lsm9ds1 module by typing this line in a terminal window: 
 ```python
 sudo pip3 install melopero-lsm9ds1

@@ -30,7 +30,7 @@ A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Ras
   </tr>
   <tr>
     <td>CSAG</td>
-    <td>Accelerometer+Gyro SPI Chip Select</td>
+    <td>Accelerometer/Gyroscope SPI Chip Select</td>
   </tr>
   <tr>
     <td>CSM</td>
@@ -38,7 +38,7 @@ A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Ras
   </tr>
   <tr>
     <td>SDOAG</td>
-    <td>Accelerometer+Gyro SPI MISO pin</td>
+    <td>Accelerometer/Gyroscope SPI MISO pin</td>
   </tr>
   <tr>
     <td>SDOM</td>
@@ -46,7 +46,7 @@ A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Ras
   </tr>
   <tr>
     <td>INT1</td>
-    <td>Accelerometer+Gyro Interrupt pin</td>
+    <td>Accelerometer/Gyroscope Interrupt pin</td>
   </tr>
    <tr>
     <td>INTM</td>
@@ -54,7 +54,7 @@ A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Ras
   </tr>
   <tr>
     <td>INT2</td>
-    <td>Another Interrupt pin for the accelerometer+gyro. <br>This pin is not supported in our library</td>
+    <td>Another Interrupt pin for the Accelerometer/Gyroscope. <br>This pin is not supported in our library</td>
   </tr>
   <tr>
     <td>DEN</td>
@@ -70,7 +70,7 @@ A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Ras
 ### Prerequisites
 You will need:
 - Python3 installed, you can download it here: [download python3](https://www.python.org/downloads/)
-- the Melopero LSM9DS1 breakout: [buy here](https://www.melopero.com/shop/sensori/imu/melopero-lsm9ds1-breakout/)
+- Melopero LSM9DS1 breakout: [buy here](https://www.melopero.com/shop/sensori/imu/melopero-lsm9ds1-breakout/)
 
 
 

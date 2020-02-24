@@ -1,6 +1,6 @@
-# Melopero_LSM9DS1 Python3 library
+# Melopero LSM9DS1 Python3 library
 A library for interfacing the Melopero LSM9DS1 9-DOF breakout board with the Rasberry Pi.
-<br> If you were looking for the Arduino library click [HERE](https://github.com/melopero/Melopero_LSM9DS1)
+<br> If you were looking for the Arduino library click [HERE](https://github.com/melopero/Melopero_LSM9DS1_Arduino_Library)
 
 # Melopero LSM9DS1 breakout board
 ![melopero logo](images/melopero-lsm9ds1-main.jpg?raw=true)
